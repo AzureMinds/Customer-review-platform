@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sentiment Analysis</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 20px; }
+        table { width: 100%; border-collapse: collapse; margin-top: 20px; }
+        th, td { padding: 10px; border: 1px solid #ddd; text-align: left; }
+        th { background-color: #f4f4f4; }
+        img { max-width: 400px; display: block; margin: 20px 0; }
+    </style>
+</head>
+<body>
+
+    <h1>Aspect-Based Sentiment Analysis Dashboard</h1>
+
+    <!-- Show Pie Chart -->
+    {% if chart_url %}
+        <h2>Sentiment Distribution</h2>
+        <img src="{{ chart_url }}" alt="Sentiment Pie Chart">
+    {% endif %}
+
+    <!-- Display Reviews in a Table -->
+    <h2>Review Data</h2>
+    <table>
+        <thead>
+            <tr>
+                <th>Review</th>
+                <th>Aspect Terms</th>
+                <th>Sentiments</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for review in reviews %}
+            <tr>
+                <td>{{ review.review_text }}</td>
+                <td>{{ review.aspect_terms }}</td>
+                <td>{{ review.sentiments }}</td>
+            </tr>
+            {% empty %}
+            <tr><td colspan="3">No data available.</td></tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+</body>
+</html>
