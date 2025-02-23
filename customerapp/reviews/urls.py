@@ -1,6 +1,7 @@
 from django.urls import path
-from .views import home  # Import the home function from views.py
+from . import views
+
 
 urlpatterns = [
-    path('', home, name='home'),  # The default route loads the homepage
+    path('', views.review_dashboard, name='review_dashboard'),
 ]

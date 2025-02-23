@@ -1,0 +1,51 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}Review Dashboard{% endblock %}
+
+{% block content %}
+<h1 class="mb-4">Review Dashboard</h1>
+
+<div class="row mb-4">
+    <div class="col-md-6">
+        <div class="card">
+            <div class="card-body">
+                <h2 class="card-title">Statistics</h2>
+                <p class="card-text">Total Reviews: <strong>{{ total_reviews }}</strong></p>
+                <p class="card-text">Average Sentiment: <strong>{{ avg_sentiment }}</strong></p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="card mb-4">
+    <div class="card-body">
+        <h2 class="card-title">Reviews by Month</h2>
+        {{ graph|safe }}
+    </div>
+</div>
+
+<div class="card">
+    <div class="card-body">
+        <h2 class="card-title">Aspect Sentiment Scores</h2>
+        <div class="table-responsive">
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th>Aspect</th>
+                        <th>Score</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for aspect in aspect_table %}
+                    <tr>
+                        <td>{{ aspect.Aspect }}</td>
+                        <td>{{ aspect.Score }}</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+{% endblock %}

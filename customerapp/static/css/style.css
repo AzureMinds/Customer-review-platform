@@ -1,0 +1,27 @@
+/* static/css/style.css */
+body {
+    transition: background-color 0.3s, color 0.3s;
+}
+
+body.dark-mode {
+    background-color: #333;
+    color: #fff;
+}
+
+.dark-mode .card {
+    background-color: #444;
+    color: #fff;
+}
+
+.dark-mode .table {
+    color: #fff;
+}
+
+.dark-mode .navbar {
+    background-color: #222 !important;
+}
+
+.dark-mode .navbar-brand,
+.dark-mode .nav-link {
+    color: #fff !important;
+}
